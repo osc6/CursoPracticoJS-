@@ -43,10 +43,10 @@ function numeroDatos () {
 
 function aggInput () {
     //eliminar todos los elementos hijos del padre;
-    var elemento = document.getElementById("aggInputs");
+    /* var elemento = document.getElementById("aggInputs");
     while (elemento.firstChild) {
       elemento.removeChild(elemento.firstChild);
-    };
+    }; */
     //quitar respuesta
     const resultado = document.getElementById("resultado");
     resultado.innerText = "";
