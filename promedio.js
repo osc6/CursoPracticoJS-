@@ -61,5 +61,51 @@ function aggInput () {
         input1.insertAdjacentHTML('beforeend', direccion);
     }
     let button = document.getElementById("aggInputs");
-    button.insertAdjacentHTML('beforeend', '<button type="button"onclick="calcularMediaAritmetica()">Calcular</button>');
+    button.insertAdjacentHTML('beforeend', '<button type="button"onclick="calcularMediaAritmetica()">Calcular Media</button> <br> <button type="button"onclick="calcularMediana()">Calcular Mediana</button> <br> <button type="button"onclick="calcularModa()">Calcular Moda</button>');
+}
+
+function calcularMediana () {
+    //borrar datos del array
+    listaUsario = [];
+    const mitadLista2 = parseInt(listaUsario.length /2);
+
+    datosUsuario ();
+    mediana(mitadLista2);
+}
+
+function esPar (lista2) {
+    if (lista2 % 2 ===0){
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+
+
+function mediana (mitadLista2) {
+    if (esPar(listaUsario.lenght)){
+        const elemento1 = listaUsario[mitadLista2];
+        const elemento2 = listaUsario[mitadLista2 - 1];
+        const promedioElemento1y2 = calcularPromedio([elemento1, elemento2]);
+        mediana1 = promedioElemento1y2;
+        return promedioElemento1y2;
+    }
+    else {
+        mediana2 = listaUsario[mitadLista2]
+    }
+    const resultado = document.getElementById("resultado");
+    resultado.innerText = "El promedio es: " + promedioElemento1y2;
+}
+
+
+function calcularPromedio () {
+    const sumaLista = lista.reduce(
+        function (valorAcumulado = 0, nuevoElemento){
+            return valorAcumulado + nuevoElemento
+        }
+    );
+    const promedioLista = sumaLista /listaUsario
+    return promedioLista
 }
