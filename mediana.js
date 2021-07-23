@@ -22,18 +22,31 @@ function calcularPromedio (lista) {
             return nuevoValor + valorActual;
         }
     )
-    const promedioLista = sumaLista / lista.length
-    return promedioLista
+    const promedioLista = sumaLista / lista.length;
+    return promedioLista;
 }
 
 
-let mediana;
+
 
 function calcularMediana(lista1) {
-    const mitad = parseInt(lista1.length / 2);
-    if (esPar(lista1.length)) {
-        const elemento1 = lista1[mitad];
-        const elemento2 = lista1[mitad - 1];
+    const listaOrdenada = lista1.sort(function(a,b){
+        return a - b;
+    });
+    const mitad = parseInt(listaOrdenada.length / 2);
+    
+    function esPar (numerito) {
+        if (numerito % 2 === 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    let mediana;    
+    if (esPar(listaOrdenada.length)) {
+        const elemento1 = listaOrdenada[mitad];
+        const elemento2 = listaOrdenada[mitad - 1];
         const promedioElemento1y2 = calcularPromedio([
             elemento1,
             elemento2
@@ -41,15 +54,14 @@ function calcularMediana(lista1) {
 
         mediana = promedioElemento1y2
     } else {
-        mediana = lista1[mitad];
+        mediana = listaOrdenada[mitad];
     }
-
+    return mediana
 }
 
-function esPar (numerito) {
-    if (numerito % 2 === 0) {
-        return true;
-    } else {
-        return false;
-    }
-}
+console.log(calcularMediana([10,
+    7,
+    3,
+    2,
+    9,
+    1,]));
