@@ -1,11 +1,17 @@
-let lista1 = [
-    1,
-    2,
-    3,
-    5,
-    9,
+let listaSort = [
     10,
+    5,
+    3,
+    2,
+    9,
+    1,
 ];
+
+function compareNumbers(a, b) {
+    return a - b;
+  }
+
+lista1 = listaSort.sort(compareNumbers);
 
 const mitad = parseInt(lista1.length / 2);
 
