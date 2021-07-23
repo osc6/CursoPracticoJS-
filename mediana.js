@@ -1,4 +1,4 @@
-let listaSort = [
+/* let listaSort = [
     10,
     5,
     3,
@@ -12,8 +12,8 @@ function compareNumbers(a, b) {
   }
 
 lista1 = listaSort.sort(compareNumbers);
+ */
 
-const mitad = parseInt(lista1.length / 2);
 
 
 function calcularPromedio (lista) {
@@ -26,18 +26,24 @@ function calcularPromedio (lista) {
     return promedioLista
 }
 
-let mediana;
-if (esPar(lista1.length)) {
-    const elemento1 = lista1[mitad];
-    const elemento2 = lista1[mitad - 1];
-    const promedioElemento1y2 = calcularPromedio([
-        elemento1,
-        elemento2
-    ]);
 
-    mediana = promedioElemento1y2
-} else {
-    mediana = lista1[mitad];
+let mediana;
+
+function calcularMediana(lista1) {
+    const mitad = parseInt(lista1.length / 2);
+    if (esPar(lista1.length)) {
+        const elemento1 = lista1[mitad];
+        const elemento2 = lista1[mitad - 1];
+        const promedioElemento1y2 = calcularPromedio([
+            elemento1,
+            elemento2
+        ]);
+
+        mediana = promedioElemento1y2
+    } else {
+        mediana = lista1[mitad];
+    }
+
 }
 
 function esPar (numerito) {
