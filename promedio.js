@@ -111,3 +111,36 @@ function calcularMediana(lista1) {
     const resultado = document.getElementById("resultado");
     resultado.innerText = "La mediana es: " + mediana;
 }
+
+
+
+// MODA
+
+
+
+function calcularModa () {
+    listaUsario = [];
+    datosUsuario ();
+
+    const lista1 = listaUsario
+    const lista1Count = {};
+    lista1.map (
+        function (elemento) {
+            if (lista1Count[elemento]) {
+                lista1Count[elemento] += 1;
+            } else {
+                lista1Count[elemento] = 1;
+            }
+        }
+    );
+    
+    
+    const lista1Array = Object.entries(lista1Count).sort(
+        function (valorAcumulado, nuevoValor) {
+            return valorAcumulado[1] - nuevoValor[1];
+        }
+    );
+    const moda = lista1Array[lista1Array.length - 1];
+    const resultado = document.getElementById("resultado");
+    resultado.innerText = `La moda es: ${moda}  veces`;
+}
