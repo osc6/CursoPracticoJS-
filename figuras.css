@@ -1,0 +1,42 @@
+body {
+    background-color: aqua;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: grid;
+    justify-content: center;
+    height: 5%;
+}
+
+main {
+    display: grid;
+    height: 80%;
+    justify-content: center;
+}
+
+footer {
+    height: 15%;
+    background-color: brown;
+    display: grid;
+    justify-content: center;
+}
+
+section {
+    margin-bottom: 2px;
+}
+
+.container {
+    display: grid;
+    height: 300px;
+    width: 500px;
+    background-color: blueviolet;       
+
+}
+
+.Calculo {
+    justify-self: center;
+    align-self: center;
+}
+
