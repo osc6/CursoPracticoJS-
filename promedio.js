@@ -61,5 +61,86 @@ function aggInput () {
         input1.insertAdjacentHTML('beforeend', direccion);
     }
     let button = document.getElementById("aggInputs");
-    button.insertAdjacentHTML('beforeend', '<button type="button"onclick="calcularMediaAritmetica()">Calcular</button>');
+    button.insertAdjacentHTML('beforeend', '<button type="button"onclick="calcularMediaAritmetica()">Calcular Media</button> <br> <button type="button"onclick="calcularMediana()">Calcular Mediana</button> <br> <button type="button"onclick="calcularModa()">Calcular Moda</button>');
+}
+
+
+// MEDIANA
+
+function calcularPromedio (lista) {
+    const sumaLista = lista.reduce(
+        function (valorActual = 0, nuevoValor) {
+            return nuevoValor + valorActual;
+        }
+    )
+    const promedioLista = sumaLista / lista.length;
+    return promedioLista;
+}
+
+function calcularMediana(lista1) {
+    listaUsario = [];
+    datosUsuario ();
+
+    const listaOrdenada = listaUsario.sort(function(a,b){
+        return a - b;
+    });
+    const mitad = parseInt(listaOrdenada.length / 2);
+    
+    function esPar (numerito) {
+        if (numerito % 2 === 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    let mediana;    
+    if (esPar(listaOrdenada.length)) {
+        const elemento1 = listaOrdenada[mitad];
+        const elemento2 = listaOrdenada[mitad - 1];
+        const promedioElemento1y2 = calcularPromedio([
+            elemento1,
+            elemento2
+        ]);
+
+        mediana = promedioElemento1y2
+    } else {
+        mediana = listaOrdenada[mitad];
+    }
+    // return mediana
+    const resultado = document.getElementById("resultado");
+    resultado.innerText = "La mediana es: " + mediana;
+}
+
+
+
+// MODA
+
+
+
+function calcularModa () {
+    listaUsario = [];
+    datosUsuario ();
+
+    const lista1 = listaUsario
+    const lista1Count = {};
+    lista1.map (
+        function (elemento) {
+            if (lista1Count[elemento]) {
+                lista1Count[elemento] += 1;
+            } else {
+                lista1Count[elemento] = 1;
+            }
+        }
+    );
+    
+    
+    const lista1Array = Object.entries(lista1Count).sort(
+        function (valorAcumulado, nuevoValor) {
+            return valorAcumulado[1] - nuevoValor[1];
+        }
+    );
+    const moda = lista1Array[lista1Array.length - 1];
+    const resultado = document.getElementById("resultado");
+    resultado.innerText = `La moda es: ${moda}  veces`;
 }
